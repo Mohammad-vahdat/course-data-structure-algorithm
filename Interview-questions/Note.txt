@@ -5,3 +5,6 @@
 - 15
 - 16
 - 19 DFS
+- 20 ListNode
+- 22 Backtracking and DFS
+- 24
