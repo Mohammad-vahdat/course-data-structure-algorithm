@@ -9,3 +9,4 @@
 - 22 Backtracking and DFS
 - 24
 - 27 Hash mapping
+- 30 Backtracking
