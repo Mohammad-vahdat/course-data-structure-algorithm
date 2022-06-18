@@ -55,3 +55,39 @@ class Solution:
                 else:
                     left = mid + 1
         return i
+
+        ######################### SECOND SOLUTION:
+
+        left, right = 0, len(nums) - 1
+
+        out = []
+
+        while left <= right:
+
+            middlePoint = (left + right) // 2
+
+            if target == nums[middlePoint]:
+
+                out.append(middlePoint)
+
+                if nums[left] != target:
+
+                    left += 1
+
+                elif nums[right] != target:
+
+                    right -= 1
+
+                else:
+
+                    return [left, right]
+
+            elif target > nums[middlePoint]:
+
+                left = middlePoint + 1
+
+            else:  # target < nums[middlePoint]:
+
+                right = middlePoint - 1
+
+        return [-1, -1] if out == [] else [min(out), max(out)]
