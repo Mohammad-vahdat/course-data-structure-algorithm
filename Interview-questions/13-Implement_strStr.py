@@ -29,10 +29,10 @@ class Solution:
         if needle == "":
             return 0
 
-        if needle in haystack:
+        for i in range(len(haystack) + 1 - len(needle)):
 
-            return len(haystack.split(needle)[0])
+            if haystack[i : i + len(needle)] == needle:
 
-        else:
+                return i
 
-            return -1
+        return -1
