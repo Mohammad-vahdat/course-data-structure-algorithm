@@ -11,3 +11,4 @@
 - 24
 - 27 Hash mapping
 - 30 Backtracking
+- 32 defaultdict
