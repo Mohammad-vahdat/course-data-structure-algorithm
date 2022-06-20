@@ -33,18 +33,22 @@ s consists of parentheses only '()[]{}'.
 class Solution:
     def isValid(self, s: str) -> bool:
 
-        if len(s) == 0:
-            return True
+        encoder = {
+            "}": "{",
+            "]": "[",
+            ")": "(",
+        }
 
-        for char in ["()", "{}", "[]"]:
-            if char in s:
-                s = s.replace(char, "")
-                return self.isValid(s)
+        stack = []
 
-        return False
+        for char in s:
 
-        # ### Method2
-        # while ("()"in s) or ("{}"in s) or ("[]"in s):
-        #     s=s.replace("()","").replace("{}","").replace("[]","")
-        # if len(s)>0: return False
-        # else: return True
+            if char in encoder.values():
+                stack.append(char)
+
+            elif stack == [] or encoder[char] != stack[-1]:
+                return False
+            else:
+                stack.pop()
+
+        return stack == []
