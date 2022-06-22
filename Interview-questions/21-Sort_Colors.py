@@ -35,16 +35,29 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
 
-        for left in range(len(nums)):
+        left, right = 0, len(nums) - 1
+        ind = 0
 
-            right = len(nums) - 1
+        def swap(i, j):
+            tmp = nums[i]
+            nums[i] = nums[j]
+            nums[j] = tmp
 
-            while right > left:
+        while ind <= right:
 
-                if nums[right] < nums[left]:
+            if nums[ind] == 0:
 
-                    tmp = nums[left]
-                    nums[left] = nums[right]
-                    nums[right] = tmp
+                swap(left, ind)
+                left += 1
+                ind += 1
 
+            elif nums[ind] == 2:
+
+                swap(ind, right)
                 right -= 1
+
+            else:
+
+                ind += 1
+
+        return nums
